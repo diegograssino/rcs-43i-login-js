@@ -1,4 +1,8 @@
 // Inicializaciones
+const USERS = [
+  { user: 'maria@maria.com', pass: 'maria' },
+  { user: 'jose@jose.com', pass: 'jose' },
+];
 
 // Seleccion de HTML
 const user = document.getElementById('user');
@@ -34,5 +38,16 @@ const handleClick = event => {
     console.log('Password validado');
   } else {
     console.log('Password no validado');
+  }
+
+  const userFound = USERS.find(
+    user => user.user === userValue
+  );
+  const passOk = userFound.pass === passValue;
+
+  if (userFound && passOk) {
+    console.log('Logueado');
+  } else {
+    console.log('No logueado');
   }
 };
